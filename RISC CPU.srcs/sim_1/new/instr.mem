@@ -1,0 +1,7 @@
+40000005 // LDA 0x05 (Nạp giá trị từ địa chỉ 5 vào AC)
+40000006 // ADD 0x06 (Cộng giá trị từ địa chỉ 6 vào AC)
+C0000007 // STO 0x07 (Lưu kết quả từ AC vào địa chỉ 7)
+00000000 // HLT      (Dừng chương trình)
+00000000 // Dữ liệu trống
+0000000A // Dữ liệu tại địa chỉ 5 (giá trị 10)
+00000014 // Dữ liệu tại địa chỉ 6 (giá trị 20)

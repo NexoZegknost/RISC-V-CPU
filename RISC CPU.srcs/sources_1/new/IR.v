@@ -1,3 +1,23 @@
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 05/05/2026 08:32:12 PM
+// Design Name: 
+// Module Name: Instruction_Register
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+
 module Instruction_Register (
     input wire clk,
     input wire rst,             // Reset đồng bộ, tích cực mức cao

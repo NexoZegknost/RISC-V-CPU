@@ -20,19 +20,27 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module Addr_Mux_tb(
-    );
-    reg [4:0] pc;
-    reg [4:0] ir;
+module tb_Addr_Mux;
+    
+    parameter WIDTH = 5;
+    
+    reg [WIDTH-1:0] pc;
+    reg [WIDTH-1:0] ir;
     reg sel;
-    wire [4:0] out;
-    Address_Mux #(.WIDTH(5)) uut (.pc_addr(pc), .ir_addr(ir), .sel(sel), .addr_out(out));
+    wire [WIDTH-1:0] out;
+    
+    Address_Mux #(.WIDTH(WIDTH)) uut (.pc_addr(pc), .ir_addr(ir), .sel(sel), .addr_out(out));
+    
+    initial $monitor ("ir_addr = %b pc_addr = %b sel = %b addr_out = %b", ir, pc, sel, out);
+    
     initial begin
-    $monitor ("ir_addr = %b pc_addr = %b sel = %b addr_out = %b", ir, pc, sel, out);
-    pc = 5'b01010; sel=1; ir = 5'b00001;
-    #10
-    pc = 5'b01010; sel=0; ir = 5'b00001;
-    #10
-    $finish;
+        pc = 5'b01010; sel=1; ir = 5'b00001;
+        #10
+        pc = 5'b01010; sel=0; ir = 5'b00001;
+        #10
+        sel = 1;
+        #20;
+        $finish;
     end
+    
 endmodule

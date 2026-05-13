@@ -67,8 +67,6 @@ git clone https://github.com/NexoZegknost/RISC-V-CPU/tree/main?tab=readme-ov-fil
 │   │       ├── Program_Counter_TB.v
 │   │       ├── Register_TB.v
 │   │       ├── TOP_TB.v
-│   │       ├── TestPack_1.zip
-│   │       └── instr.mem
 │   └── sources_1
 │       └── new
 │           ├── ALU.v

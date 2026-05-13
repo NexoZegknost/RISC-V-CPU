@@ -11,7 +11,7 @@ module tb_instruction_register();
 
     // Khởi tạo khối IR (dựa trên module register_32bit chung)
     // Giả sử logic tách opcode/addr được thực hiện tại đây hoặc trong top module
-    Instruction_Register dut (
+    Instruction_Register DUT (
         .clk(clk), 
         .rst(rst), 
         .load(load), 

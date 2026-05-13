@@ -7,14 +7,42 @@ module tb_Controller();
 
     Controller DUT (clk, rst, zero, opcode, sel, rd, ld_ir, halt, inc_pc, ld_ac, ld_pc, wr, data_e);
     
-    initial $monitor("reset = %b, zero = %b, sel = %, rd = %b, ld_ir = %b", rst, zero, sel, rd, ld_ir);
+    initial begin
+        // Bước 1: Khởi tạo và Reset hệ thống
+        rst = 1; opcode = 3'b000; zero = 0;
+        #15 rst = 0; // Kết thúc reset đồng bộ [cite: 27, 134]
+
+        // Bước 2: Kiểm tra lệnh LDA (Load Accumulator - Opcode 101)
+        opcode = 3'b101;
+        #80; // Chờ chạy qua 8 trạng thái của FSM [cite: 28]
+
+        // Bước 3: Kiểm tra lệnh ADD (Opcode 010)
+        opcode = 3'b010;
+        #80;
+
+        // Bước 4: Kiểm tra lệnh SKZ (Skip if Zero - Opcode 001) với zero = 1
+        opcode = 3'b001; zero = 1;
+        #80;
+
+        // Bước 5: Kiểm tra lệnh JMP (Jump - Opcode 111)
+        opcode = 3'b111;
+        #80;
+
+        // Bước 6: Kiểm tra lệnh HLT (Halt - Opcode 000)
+        opcode = 3'b000;
+        #80;
+
+        $stop; // Dừng mô phỏng
+    end
     
     initial begin
-        clk = 0; rst = 1; zero = 0; opcode = 3'b010; // Giả lập lệnh ADD
-        #50 rst = 0;
-        // Quan sát các tín hiệu thay đổi qua 8 chu kỳ (160ns)
-        #160 opcode = 3'b111; // Chuyển sang lệnh JMP
-        #160 $finish;
+        #2000;
+        $finish;
     end
-    always #10 clk = ~clk;
+    
+    initial begin
+        clk = 0;
+        forever #5 clk = ~clk;
+    end
+    
 endmodule

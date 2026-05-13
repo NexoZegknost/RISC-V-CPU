@@ -29,7 +29,7 @@ module tb_Addr_Mux;
     reg sel;
     wire [WIDTH-1:0] out;
     
-    Address_Mux #(.WIDTH(WIDTH)) uut (.pc_addr(pc), .ir_addr(ir), .sel(sel), .addr_out(out));
+    Address_Mux #(.WIDTH(WIDTH)) DUT (.pc_addr(pc), .ir_addr(ir), .sel(sel), .addr_out(out));
     
     initial $monitor ("ir_addr = %b pc_addr = %b sel = %b addr_out = %b", ir, pc, sel, out);
     

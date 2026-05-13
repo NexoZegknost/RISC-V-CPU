@@ -26,7 +26,7 @@ module ALU(
     output is_zero
     );
     
-    assign is_zero = (inA == 32'b0) ? 0 : 1;
+    assign is_zero = (inA == 32'b0);
     
     always @(*) begin
         case (opcode)

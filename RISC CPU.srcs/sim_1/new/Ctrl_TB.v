@@ -10,7 +10,7 @@ module tb_Controller();
     initial begin
         // Bước 1: Khởi tạo và Reset hệ thống
         rst = 1; opcode = 3'b000; zero = 0;
-        #15 rst = 0; // Kết thúc reset đồng bộ [cite: 27, 134]
+        #15 rst = 0; // Kết thúc reset đồng bộ
 
         // Bước 2: Kiểm tra lệnh LDA (Load Accumulator - Opcode 101)
         opcode = 3'b101;

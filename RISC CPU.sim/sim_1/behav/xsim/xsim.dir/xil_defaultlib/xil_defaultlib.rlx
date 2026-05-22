@@ -1,0 +1,18 @@
+0.7
+2020.2
+Nov 14 2025
+19:37:27
+D:/Docs/Learning HCMUT/Logic design with HDL/Project 1/RISC CPU/RISC CPU.sim/sim_1/behav/xsim/glbl.v,1756381829,verilog,,,,glbl,,,,,,,,
+D:/Docs/Learning HCMUT/Logic design with HDL/Project 1/RISC CPU/RISC CPU.srcs/sim_1/new/ALU_TB.v,1778680015,verilog,,,,tb_ALU,,,../../../../../../../../../Vivado/2025.2/Vivado/data/rsb/busdef,,,,,
+D:/Docs/Learning HCMUT/Logic design with HDL/Project 1/RISC CPU/RISC CPU.srcs/sim_1/new/Addr_MUX_TB.v,1778680015,verilog,,,,tb_Addr_Mux,,,../../../../../../../../../Vivado/2025.2/Vivado/data/rsb/busdef,,,,,
+D:/Docs/Learning HCMUT/Logic design with HDL/Project 1/RISC CPU/RISC CPU.srcs/sim_1/new/Ctrl_TB.v,1778987537,verilog,,,,tb_Controller,,,../../../../../../../../../Vivado/2025.2/Vivado/data/rsb/busdef,,,,,
+D:/Docs/Learning HCMUT/Logic design with HDL/Project 1/RISC CPU/RISC CPU.srcs/sim_1/new/MEM_TB.v,1778680015,verilog,,,,tb_memory,,,../../../../../../../../../Vivado/2025.2/Vivado/data/rsb/busdef,,,,,
+D:/Docs/Learning HCMUT/Logic design with HDL/Project 1/RISC CPU/RISC CPU.srcs/sim_1/new/PC_tb.v,1778603487,verilog,,,,tb_PC,,,../../../../../../../../../Vivado/2025.2/Vivado/data/rsb/busdef,,,,,
+D:/Docs/Learning HCMUT/Logic design with HDL/Project 1/RISC CPU/RISC CPU.srcs/sim_1/new/TOP_TB.v,1778680496,verilog,,,,tb_cpu_top,,,../../../../../../../../../Vivado/2025.2/Vivado/data/rsb/busdef,,,,,
+D:/Docs/Learning HCMUT/Logic design with HDL/Project 1/RISC CPU/RISC CPU.srcs/sources_1/new/ALU.v,1778680015,verilog,,D:/Docs/Learning HCMUT/Logic design with HDL/Project 1/RISC CPU/RISC CPU.srcs/sources_1/new/Address_Mux.v,,ALU,,,../../../../../../../../../Vivado/2025.2/Vivado/data/rsb/busdef,,,,,
+D:/Docs/Learning HCMUT/Logic design with HDL/Project 1/RISC CPU/RISC CPU.srcs/sources_1/new/Address_Mux.v,1778986148,verilog,,D:/Docs/Learning HCMUT/Logic design with HDL/Project 1/RISC CPU/RISC CPU.srcs/sources_1/new/Controller.v,,Address_Mux,,,../../../../../../../../../Vivado/2025.2/Vivado/data/rsb/busdef,,,,,
+D:/Docs/Learning HCMUT/Logic design with HDL/Project 1/RISC CPU/RISC CPU.srcs/sources_1/new/Controller.v,1778990213,verilog,,D:/Docs/Learning HCMUT/Logic design with HDL/Project 1/RISC CPU/RISC CPU.srcs/sources_1/new/IR.v,,Controller,,,../../../../../../../../../Vivado/2025.2/Vivado/data/rsb/busdef,,,,,
+D:/Docs/Learning HCMUT/Logic design with HDL/Project 1/RISC CPU/RISC CPU.srcs/sources_1/new/IR.v,1778986148,verilog,,D:/Docs/Learning HCMUT/Logic design with HDL/Project 1/RISC CPU/RISC CPU.srcs/sources_1/new/PC.v,,Instruction_Register,,,../../../../../../../../../Vivado/2025.2/Vivado/data/rsb/busdef,,,,,
+D:/Docs/Learning HCMUT/Logic design with HDL/Project 1/RISC CPU/RISC CPU.srcs/sources_1/new/PC.v,1778986148,verilog,,D:/Docs/Learning HCMUT/Logic design with HDL/Project 1/RISC CPU/RISC CPU.srcs/sources_1/new/TOP.v,,Program_Counter,,,../../../../../../../../../Vivado/2025.2/Vivado/data/rsb/busdef,,,,,
+D:/Docs/Learning HCMUT/Logic design with HDL/Project 1/RISC CPU/RISC CPU.srcs/sources_1/new/TOP.v,1778593666,verilog,,D:/Docs/Learning HCMUT/Logic design with HDL/Project 1/RISC CPU/RISC CPU.srcs/sources_1/new/memory.v,,TOP_module,,,../../../../../../../../../Vivado/2025.2/Vivado/data/rsb/busdef,,,,,
+D:/Docs/Learning HCMUT/Logic design with HDL/Project 1/RISC CPU/RISC CPU.srcs/sources_1/new/memory.v,1778986148,verilog,,D:/Docs/Learning HCMUT/Logic design with HDL/Project 1/RISC CPU/RISC CPU.srcs/sim_1/new/TOP_TB.v,,Memory,,,../../../../../../../../../Vivado/2025.2/Vivado/data/rsb/busdef,,,,,

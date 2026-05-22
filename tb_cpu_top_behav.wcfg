@@ -11,13 +11,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="80.400 ns"></ZoomStartTime>
-      <ZoomEndTime time="175.001 ns"></ZoomEndTime>
-      <Cursor1Time time="145.000 ns"></Cursor1Time>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="405.501 ns"></ZoomEndTime>
+      <Cursor1Time time="153.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="153"></NameColumnWidth>
-      <ValueColumnWidth column_width="71"></ValueColumnWidth>
+      <ValueColumnWidth column_width="67"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="7" />
    <wvobject fp_name="/tb_cpu_top/clk" type="logic">
@@ -31,22 +31,28 @@
    <wvobject fp_name="/tb_cpu_top/uut/PC/pc_out" type="array">
       <obj_property name="ElementShortName">pc_out[4:0]</obj_property>
       <obj_property name="ObjectShortName">pc_out[4:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_cpu_top/uut/ir_out" type="array">
       <obj_property name="ElementShortName">ir_out[31:0]</obj_property>
       <obj_property name="ObjectShortName">ir_out[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_cpu_top/uut/ac_out" type="array">
       <obj_property name="ElementShortName">ac_out[31:0]</obj_property>
       <obj_property name="ObjectShortName">ac_out[31:0]</obj_property>
-      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_cpu_top/uut/CTRL/state" type="array">
       <obj_property name="ElementShortName">state[2:0]</obj_property>
       <obj_property name="ObjectShortName">state[2:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_cpu_top/uut/MEM/ram" type="array">
       <obj_property name="ElementShortName">ram[0:31][31:0]</obj_property>
       <obj_property name="ObjectShortName">ram[0:31][31:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
    </wvobject>
 </wave_config>

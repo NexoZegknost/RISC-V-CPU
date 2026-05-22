@@ -32,7 +32,6 @@ module tb_Controller();
         opcode = 3'b000;
         #80;
 
-        $stop; // Dừng mô phỏng
     end
     
     initial begin

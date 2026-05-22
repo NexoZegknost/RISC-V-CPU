@@ -74,8 +74,6 @@ module tb_memory();
         #10;
         rd = 0;
 
-        // 4. Kiểm tra nạp file memory.list (nếu có)
-        // $readmemh("memory.list", uut.ram);
         
         #50;
         $stop;

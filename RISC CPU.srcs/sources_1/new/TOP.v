@@ -21,14 +21,17 @@
 
 module TOP_module (
     input clk,
-    input rst
+    input rst,
+    output reg [6:0] opcodeDisplay
+//    output [2:0] controllerState
 );
     wire [2:0] opcode;
     wire [4:0] ir_addr, pc_addr, mem_addr;
     wire [31:0] mem_data, alu_out, ac_out, ir_out;
     wire zero, sel, rd, wr, ld_ir, halt, inc_pc, ld_ac, ld_pc, data_e;
     
-    assign mem_data = (data_e) ? ac_out : 32'bz;
+    assign mem_data = (data_e) ? 32'hABCD1234 : 32'bz;
+    
     
     // Khối Program Counter
     Program_Counter PC (
@@ -56,6 +59,9 @@ module TOP_module (
     );
     assign opcode = ir_out[31:29]; // Giả sử 3-bit đầu là opcode
     assign ir_addr = ir_out[4:0];   // 5-bit cuối là địa chỉ
+    
+    // UX
+    bin_to_7seg UX (opcode, opcodeDiplay);
 
     // Khối Controller (FSM)
     Controller CTRL (

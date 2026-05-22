@@ -1,4 +1,4 @@
-# RISC-V-CPU
+# RISC-V CPU Design
 
 ![GitHub stars](https://img.shields.io/github/stars/NexoZegknost/RISC-V-CPU?style=for-the-badge&logo=github) ![GitHub forks](https://img.shields.io/github/forks/NexoZegknost/RISC-V-CPU?style=for-the-badge&logo=github) ![GitHub issues](https://img.shields.io/github/issues/NexoZegknost/RISC-V-CPU?style=for-the-badge&logo=github) ![License](https://img.shields.io/badge/license-LICENSE-green?style=for-the-badge)
 
@@ -13,30 +13,49 @@
 
 ## 📝 Description
 
-Dự án thiết kế bộ vi xử lý RISC CPU đơn giản sử dụng ngôn ngữ đặc tả phần cứng Verilog HDL trên môi trường Vivado. Đây là sản phẩm thuộc môn học Logic Design, tập trung vào việc rèn luyện kỹ năng thiết kế mạch số theo mô hình phân cấp.  
-### 1. Đặc điểm kỹ thuật
-Hệ thống là một bộ xử lý RISC cơ bản với các thông số chính:Kiến trúc: 3-bit opcode (hỗ trợ 8 loại lệnh) và 5-bit operand (truy xuất 32 không gian địa chỉ).  Độ rộng dữ liệu: 32-bit cho cả dữ liệu và địa chỉ.  Cơ chế hoạt động: Dựa trên tín hiệu $clk$ và $rst$ đồng bộ mức cao.  Điều khiển: Sử dụng Máy trạng thái hữu hạn (FSM) với 8 trạng thái hoạt động liên tục (từ INST_ADDR đến STORE).
-### 2. Các khối chức năng chính:
-Hệ thống được thiết kế theo mô hình phân cấp bao gồm:  Program Counter (PC): Quản lý địa chỉ lệnh, có khả năng tăng tiến hoặc nạp địa chỉ mới khi thực hiện lệnh nhảy (JMP).  ALU (Arithmetic Logic Unit): Thực hiện 8 phép toán số học/logic và cung cấp cờ $is\_zero$ cho lệnh nhảy điều kiện.  Controller (FSM): "Bộ não" điều phối 9 tín hiệu điều khiển dựa trên trạng thái và opcode.  Memory: Bộ nhớ tích hợp lưu trữ cả lệnh và dữ liệu, sử dụng cổng dữ liệu hai chiều (bidirectional).  Instruction Register (IR) & Accumulator (AC): Các thanh ghi lưu trữ tạm thời dữ liệu và lệnh.  Address Mux: Lựa chọn địa chỉ từ PC hoặc từ IR để gửi tới bộ nhớ tùy theo giai đoạn nạp lệnh hay thực thi.
-### 3. Tập lệnh (Instruction Set):
-Opcode | Lệnh | [cite_start]Mô tả hoạt động [cite: 44, 218] |
-| :---: | :---: | :--- |
-| `000` | **HLT** | [cite_start]Dừng hoạt động chương trình. |
-| `001` | **SKZ** | [cite_start]Bỏ qua lệnh tiếp theo nếu cờ Zero = 1. |
-| `010` | **ADD** | [cite_start]Cộng giá trị bộ nhớ vào thanh ghi Accumulator. |
-| `011` | **AND** | [cite_start]Thực hiện phép toán logic AND. |
-| `100` | **XOR** | [cite_start]Thực hiện phép toán logic XOR. |
-| `101` | **LDA** | [cite_start]Nạp dữ liệu từ bộ nhớ vào Accumulator. |
-| `110` | **STO** | [cite_start]Lưu dữ liệu từ Accumulator vào bộ nhớ. |
-| `111` | **JMP** | [cite_start]Nhảy không điều kiện đến địa chỉ đích. |
+### 1. Technical Specifications
+The system is a basic RISC processor with the following core parameters:
+*   **Architecture:** 3-bit Opcode (supporting 8 instructions) and 5-bit Operand (addressing 32 memory locations).
+*   **Data Width:** 32-bit.
+*   **Operation:** Synchronous logic driven by `clk` and active-high `rst`.
+*   **Control Unit:** Finite State Machine (FSM) consisting of 8 sequential states (from `INST_ADDR` to `STORE`).
 
-### 4. Bảng trạng thái FSM:
-| Trạng thái | Hoạt động chính |
-| :----: | :----: |
-| INST_ADDR | Thiết lập địa chỉ lấy lệnh từ PC. |
-| INST_FETCH | Đọc lệnh từ bộ nhớ. |
-|INST_LOAD | Nạp lệnh vào thanh ghi IR. |
-| ALU_OP | Thực thi phép toán số học/logic. |
+### 2. Functional Blocks
+The design follows a modular hierarchy:
+*   **Program Counter (PC):** Manages instruction addresses; supports increments and jumps (JMP).
+*   **ALU (Arithmetic Logic Unit):** Executes 8 arithmetic/logic operations and manages the `is_zero` flag for conditional branching.
+*   **Controller (FSM):** The "brain" of the CPU, coordinating 9 control signals across 8 cycles.
+*   **Memory:** Integrated storage for instructions and data, utilizing a bidirectional data bus.
+*   **IR & Accumulator (AC):** Registers for temporary storage of instructions and calculation results.
+*   **Address Mux:** Selects between PC or IR addresses for memory access based on the execution phase.
+
+### 3. Instruction Set:
+| Opcode | Mnemonic | Description |
+| :---: | :---: | :--- |
+| `000` | **HLT** | Halt execution and stop the program. |
+| `001` | **SKZ** | Skip the next instruction if the Zero flag = 1. |
+| `010` | **ADD** | Add memory content to the Accumulator. |
+| `011` | **AND** | Perform bitwise AND operation. |
+| `100` | **XOR** | Perform bitwise XOR operation. |
+| `101` | **LDA** | Load data from memory into the Accumulator. |
+| `110` | **STO** | Store Accumulator data into memory. |
+| `111` | **JMP** | Unconditional jump to the target address. |
+
+### 4. Control Unit: Finite State Machine (FSM)
+The Controller coordinates the timing of the CPU through an 8-state cyclic FSM. Each state corresponds to a specific phase of the Instruction Cycle:
+
+| State | Name | Functional Description |
+| :---: | :--- | :--- |
+| `S0` | **INST_ADDR** | Send the address from Program Counter (PC) to the Memory. |
+| `S1` | **INST_FETCH** | Fetch the instruction data from Memory via the data bus. |
+| `S2` | **INST_LOAD** | Load the fetched data into the Instruction Register (IR). |
+| `S3` | **IDLE/DECODE** | Decode the Opcode and increment the Program Counter (PC+1). |
+| `S4` | **OP_ADDR** | Send the operand address (from IR) to the Memory. |
+| `S5` | **OP_FETCH** | Fetch the data operand required for the instruction. |
+| `S6` | **ALU_OP** | Execute Arithmetic/Logic operation (ADD, AND, XOR, etc.). |
+| `S7` | **STORE** | Write the result back to Memory (for STO) or update the Accumulator. |
+
+> **Note:** The FSM ensures that control signals such as `load_ir`, `inc_pc`, and `mem_write` are asserted only at the precise clock edges required for data stability.
 ## ⚡ Quick Start
 
 ```bash
@@ -47,7 +66,7 @@ git clone https://github.com/NexoZegknost/RISC-V-CPU/tree/main?tab=readme-ov-fil
 # (See Development Setup below)
 ```
 
-## 📸 Screenshots
+## 📸 Overview
 
  [Coming soon ...]
 
@@ -67,8 +86,6 @@ git clone https://github.com/NexoZegknost/RISC-V-CPU/tree/main?tab=readme-ov-fil
 │   │       ├── Program_Counter_TB.v
 │   │       ├── Register_TB.v
 │   │       ├── TOP_TB.v
-│   │       ├── TestPack_1.zip
-│   │       └── instr.mem
 │   └── sources_1
 │       └── new
 │           ├── ALU.v
@@ -82,19 +99,22 @@ git clone https://github.com/NexoZegknost/RISC-V-CPU/tree/main?tab=readme-ov-fil
 └── RISC CPU.xpr
 ```
 
-## 👥 Contributing
+## 👥 Development Team
+**Ho Chi Minh City University of Technology (HCMUT)**  
+**Faculty of Computer Science and Engineering**
 
-Contributions are welcome! Here's how you can help:
+| Member | ID |
+| :--- | :---:  |
+| **Nguyễn Huỳnh Hữu Đức** |  |
+| **Phạm Việt Cường** |  | 
+| **Nguyễn Chí Quốc Cường** |  |
 
-1. **Fork** the repository
-2. **Clone** your fork: `git clone https://github.com/NexoZegknost/RISC-V-CPU/tree/main?tab=readme-ov-file.git`
-3. **Create** a new branch: `git checkout -b feature/your-feature`
-4. **Commit** your changes: `git commit -am 'Add some feature'`
-5. **Push** to your branch: `git push origin feature/your-feature`
-6. **Open** a pull request
-
-Please ensure your code follows the project's style guidelines and includes tests where applicable.
 
 ## 📜 License
 
-This project is licensed under the LICENSE License.
+This project is licensed under the LICENSE
+
+*This architecture is inspired by RISC principles for academic research. RISC-V is a trademark of RISC-V International. This project is an independent implementation.*
+
+---
+*Note: The comprehensive technical report was authored in LaTeX, including detailed block diagrams and timing analysis.*
